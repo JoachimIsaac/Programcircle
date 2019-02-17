@@ -4,8 +4,9 @@
 //
 //   Course:
 //
-//   Purpose:<< This program will calculate the area of an angle on a circle an"
-//   the length arc of that angle. It will also change the degrees of the angle to radians
+//   Purpose:<< This program will calculate the area of an angle on a circle,
+//   the arc length of that angle; and It will also change
+//   he degrees of the angle to radians.
 //
 //
 //
@@ -27,7 +28,7 @@ private:
     double in_radians;
     
 public:
-    //default Constructor.
+    //Default Constructor.
     Circle(){
         radius = 0.0;
         degrees = 0.0;
@@ -40,6 +41,7 @@ public:
     Circle(int r,int d){
         radius = r;
         degrees = d;
+       
     }
     
     //Getter function for radius.
@@ -54,7 +56,7 @@ public:
         return degrees;
     }
     
-    //setter function for the radius of the circle.
+    //Setter function for the radius of the circle.
     void setRadius(double r){
         if(r<=0)
         radius= 1.0;
@@ -64,44 +66,41 @@ public:
     
     void setDegrees(double d){
         degrees = d;
-        //no need for data validation since degrees can be measured by negative and positive.
+    //No need for data validation, since degrees
+    //can be measured both negatively and positively.
     }
     
-    //function that calcualtes the area of the circle.
-    void cal_Area(){
+    
+    double cal_degrees_to_radians(){
+        
+        in_radians = degrees * M_PI/180;
+        // M_PI is the object for the value of pi.
+        // this equation converts degrees into radians
+        
+        return in_radians;
+    }
+    
+    //Function that calcualtes the area of the circle.
+    double cal_Area(){
         
     circle_Area = (0.5) * (degrees * M_PI/180) * (radius * radius);
-    }
-    
-    void cal_Circle_Arc(){
-    
-        circle_Arc_length = radius * (degrees * M_PI/180);
-    }
-    
-    
-    void cal_degrees_to_radians(){
-        
-        in_radians = degrees * M_PI/180; // M_PI is the object for the value of pi.
-                                        // this equation converts degrees into radians
-    }
-    
-    double getcircle_Area(){
+        //The equation goes as follows half multiplied by the degrees in radians,
+        //multiplied by the radius squared
         return circle_Area;
     }
     
-    double getcal_Circle_Arc(){
+    double cal_Circle_Arc(){
+    
+        circle_Arc_length = radius * (degrees * M_PI/180);
+        //The equation goes as follows: the radius multiplied by
+        //the theta (degree amount, in radians).
         return circle_Arc_length;
-    }
-   
-    // getter function for in_radians.
-    double getin_radians(){
-        return in_radians;
     }
     
     
     //Deconstructor
     ~Circle(){
-        cout <<"The object has been destoryed \n";
+        cout <<"The object has been destoryed! \n";
     }
     
    };
@@ -112,33 +111,34 @@ int main(){
     
     double r = 0.0,d = 0.0;
     Circle c;
+
     
     
     cout << "Please enter the radiaus of the circle.\n";
     cin >> r;
     cout<< "Please enter the degrees of the angle within the circle.\n";
     cin >> d;
+    //deconstructor is called after that last input request, since it's
+    //going out of scope or leaving the block.
     
-    Circle(r,d);
+    
+    Circle(r,d); //parameterized constructor
     c.setRadius(r);
     c.setDegrees(d);
-    c.cal_Area();
-    c.cal_Circle_Arc();
-    c.cal_degrees_to_radians();
     
-    
+
     cout << "The radius of your Circle is :"<<c.getRadius()<<"\n";
     
     cout << "The amount of degrees of the angle within your circle is: "
     << c.getDegrees()<<"\n";
     
-    cout << "The area of the circle is "<< c.getcircle_Area()<<"\n";
+    cout << "The area of the circle is "<< c.cal_Area()<<"\n";
     
     cout << "The arc length of the angle on the circle is "
-    << c.getcal_Circle_Arc()<<"\n";
+    << c.cal_Circle_Arc()<<"\n";
     
-    cout << "The degrees of the angle on the circle, converted toi radians is  "
-    << c.getin_radians()<<"\n";
+    cout << "The degrees of the angle on the circle, converted to radians is  "
+    << c.cal_degrees_to_radians()<<"\n";
     
     
     
