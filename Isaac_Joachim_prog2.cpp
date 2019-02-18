@@ -1,11 +1,11 @@
 //-------------------------------------------------------------------------------------------
 //
-//   Name: Joachim Isaac (joe)
-//   Course: CS 1063-202, Spring 19, Wuthrich
-//   Purpose:<< This program will calculate the area of an angle on a circle,
-//   the arc length of that angle; and It will also change
-//   the degrees of the angle to radians.
-//
+// 
+//   Purpose:<< This program accepts the value of the radius and degrees from the user
+//              then it calculates these values to get the degrees converted into radians,
+//              the arc length of the angle within the circle and the area of the angle
+//              within the circle. After the calculations have been made it prints out these
+//              values for the user.
 //
 //-------------------------------------------------------------------------------------------
 
